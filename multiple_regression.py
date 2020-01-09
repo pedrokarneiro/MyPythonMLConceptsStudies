@@ -58,30 +58,27 @@ print("We have predicted that a car with 1.3 liter engine, and a weight of 2.3 k
 # 
 # In this case, we can ask for the coefficient value of weight against CO2, and for volume against CO2. The answer(s) we get tells us what would happen if we increase, or decrease, one of the independent values.
 print(regr.coef_)
+print ('Result Explained:')
+print('The result array represents the coefficient values of weight and value.')
+# Weight: 0.00755095
+# Volume: 0.00780526
+print('regr.coef_[0] = Coeficient of Weight: ' + str(regr.coef_[0]))
+print('regr.coef_[1] = Coeficient of Volume: ' + str(regr.coef_[1]))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# These values tells us that if the weight increases by 1g, the CO2 emission
+# increases by 0.00755095g.
+# And if the engine size (Volume) increases by 1 ccm, the CO2 emission increases
+# by 0.00780526 g.
+# 
+# Let's test it!
+# 
+print('We have already predicted that if a car with a 1300ccm engine weighs 2300g,')
+print('the CO2 emission will be approximately 107g. What if we increase the weight')
+print('with 1000g? In other words, what would be the predicted CO2 if weight was 3300g?')
+predictedCO2 = regr.predict([[3300, 1300]])
+print('--------------------------------------------------------------------------------')
+print("We have predicted that a car with 1.3 liter engine, and a weight of 3.3 kg, will release approximately " + str(round(predictedCO2[0], 2)) + " grams of CO2 for every kilometer it drives.")
+print('--------------------------------------------------------------------------------')
+print('We have predicted that a car with 1.3 liter engine, and a weight of 3.3 kg, will release approximately 115 grams of CO2 for every kilometer it drives.')
+print('Which shows that the coefficient of 0.00755095 is correct:')
+print('107.2087328 + (1000 * 0.00755095) = 114.75968')
