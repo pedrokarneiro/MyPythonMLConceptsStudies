@@ -82,3 +82,12 @@ print('-------------------------------------------------------------------------
 print('We have predicted that a car with 1.3 liter engine, and a weight of 3.3 kg, will release approximately 115 grams of CO2 for every kilometer it drives.')
 print('Which shows that the coefficient of 0.00755095 is correct:')
 print('107.2087328 + (1000 * 0.00755095) = 114.75968')
+
+# Plot
+import matplotlib.pyplot as plt
+weight = X['Weight']
+volume = X['Volume']
+CO2_bubble = pow(y*0.1, y*0.02)+5                    # The more CO2, the bigger the bubble.
+plt.scatter(weight, volume, s=CO2_bubble, alpha=0.5) # Prepares the scatterplot.
+plt.show()                                           # Shows the plot.
+
